@@ -74,9 +74,9 @@ public partial class SiteMaster : MasterPage
         string lblcuenta = System.Web.HttpContext.Current.Session["cuenta"].ToString();
         string lblcod = System.Web.HttpContext.Current.Session["codigo"].ToString();
 
-        lblUsuario.Text = lblusu;
-        lblCuenta.Text = lblcuenta;
-        lblCodigo.Text = lblcod;
+        lblUsuario.Text = "Usuario: "+ lblusu;
+        lblCuenta.Text = " Cuenta: " + lblcuenta;
+        lblCodigo.Text = " Codigo: " + lblcod;
     }
 
     protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

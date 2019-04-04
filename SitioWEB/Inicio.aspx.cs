@@ -8,7 +8,6 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Collections;
-
 public partial class Inicio : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -25,6 +24,12 @@ public partial class Inicio : System.Web.UI.Page
         string correo = txtcorreo.Text;
         string nombre = txtnombre.Text;
         // codigo para verificaciones
+        if (true)
+        {
+            System.Web.HttpContext.Current.Session["usuario"] = usuario;
+            Response.Redirect("Default");
+        }
+
     }
 
     protected void login_click(object sender, EventArgs e)
