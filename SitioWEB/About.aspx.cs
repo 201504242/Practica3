@@ -11,4 +11,12 @@ public partial class About : Page
     {
 
     }
+
+    protected void trans_click(object sender, EventArgs e)
+    {
+        string monto = txtmonto.Text;
+        string cuenta = txtcuenta.Text;
+
+        // codigo para verificaciones
+    }
 }
