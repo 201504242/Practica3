@@ -12,7 +12,11 @@ public partial class SiteMaster : MasterPage
     private const string AntiXsrfTokenKey = "__AntiXsrfToken";
     private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
     private string _antiXsrfTokenValue;
-
+    public bool esLogin = false;
+    public void cambiarLogin()
+    {
+        esLogin = false;
+    }
     protected void Page_Init(object sender, EventArgs e)
     {
         // The code below helps to protect against XSRF attacks
@@ -66,7 +70,13 @@ public partial class SiteMaster : MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        string lblusu = System.Web.HttpContext.Current.Session["usuario"].ToString();
+        string lblcuenta = System.Web.HttpContext.Current.Session["cuenta"].ToString();
+        string lblcod = System.Web.HttpContext.Current.Session["codigo"].ToString();
 
+        lblUsuario.Text = lblusu;
+        lblCuenta.Text = lblcuenta;
+        lblCodigo.Text = lblcod;
     }
 
     protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
