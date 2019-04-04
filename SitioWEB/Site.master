@@ -51,8 +51,8 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Inicio</a></li>
-                        <li><a runat="server" href="~/About">Creditos</a></li>
-                        <li><a runat="server" href="~/Contact">Transferencia</a></li>
+                        <li><a runat="server" href="~/About">Transferencia</a></li>
+                        <li><a runat="server" href="~/Contact">Creditos</a></li>
                         <li><a runat="server" href="~/Debito">Debito</a></li>
 
                     </ul>

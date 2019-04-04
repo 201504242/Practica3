@@ -11,4 +11,12 @@ public partial class Contact : Page
     {
 
     }
+
+    protected void credito_click(object sender, EventArgs e)
+    {
+        string monto = txtmonto_credito.Text;
+        string descripcion = txtdescripcion.Text;
+
+        // codigo para verificaciones
+    }
 }

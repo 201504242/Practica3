@@ -21,7 +21,7 @@
                  basados en ordenador y sin la intervención directa del personal del banco
             </p>
             <p>
-                <a class="btn btn-default" href="Contact">Ir a Transferencias &raquo;</a>
+                <a class="btn btn-default" href="About">Ir a Transferencias &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
@@ -32,7 +32,7 @@
                 El crédito o contrato de crédito es una operación financiera en la que una persona (el acreedor) realiza un préstamo por una cantidad determinada de dinero a otra persona 
             </p>
             <p>
-                <a class="btn btn-default" href="About">Ir a Creditos &raquo;</a>
+                <a class="btn btn-default" href="Contact">Ir a Creditos &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
