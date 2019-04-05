@@ -77,19 +77,7 @@ namespace BancoGT
 
         protected void registro_click(object sender, EventArgs e)
         {
-            /*string usuario = txtusuario.Text;
-            string contra = txtcontra.Text;
-            string correo = txtcorreo.Text;
-            string nombre = txtnombre.Text;
-            // codigo para verificaciones
-            if (true)
-            {
-                System.Web.HttpContext.Current.Session["usuario"] = usuario;
-                Response.Redirect("Default");
-            }*/
             CrearUsuario();
-            
-
         }
 
         protected void login_click(object sender, EventArgs e)
@@ -97,11 +85,69 @@ namespace BancoGT
             string usuario = login_usuario.Text;
             string contra = login_contra.Text;
             string codigo = login_codigo.Text;
-            System.Web.HttpContext.Current.Session["usuario"] = "Administrador";
-            System.Web.HttpContext.Current.Session["codigo"] = "Admin";            System.Web.HttpContext.Current.Session["cuenta"] = "";
-            System.Web.HttpContext.Current.Session["tipo"] = "0";
-            Response.Redirect("Default.aspx");
-            
+            // codigo para verificaciones
+
+            int bandera = 1;
+            if (usuario.Length <= 0)
+            {
+                bandera = 0;
+                alerta.Text = ("Error, ingrese usuario");
+            }
+            if (contra.Length <= 0)
+            {
+                bandera = 0;
+                alerta.Text = ("Error, ingrese contrasenia");
+            }
+            if (codigo.Length <= 0)
+            {
+                bandera = 0;
+                alerta.Text = ("Error, ingrese codigo");
+            }
+            if (usuario.Length <= 0 && contra.Length <= 0 && codigo.Length <= 0)
+            {
+                bandera = 0;
+                alerta.Text = ("Error, ingrese los datos que se le solicitan");
+            }
+            if (bandera == 1)
+            {
+                iniciar_sesion();
+            }            
         }
+
+        public void iniciar_sesion()
+        {
+            DataSet ds = new DataSet();
+
+            ds = op.consultar_usuario(login_usuario.Text, login_contra.Text, Convert.ToInt32(login_codigo.Text));
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                if (ds.Tables[0].Rows[0][5].ToString() == "2")
+                {
+                    String rol = Convert.ToString(ds.Tables[0].Rows[0][5]);
+                    System.Web.HttpContext.Current.Session["usuario"] = login_usuario.Text;
+                    System.Web.HttpContext.Current.Session["codigo"] = login_codigo.Text;
+                    System.Web.HttpContext.Current.Session["cuenta"] = "";
+                    System.Web.HttpContext.Current.Session["tipo"] = "1";
+                    Response.Redirect("Default.aspx");
+                }
+                else if (ds.Tables[0].Rows[0][5].ToString() == "1")
+                {
+                    String rol = Convert.ToString(ds.Tables[0].Rows[0][5]);
+                    System.Web.HttpContext.Current.Session["usuario"] = "Administrador";
+                    System.Web.HttpContext.Current.Session["codigo"] = "Admin";
+                    System.Web.HttpContext.Current.Session["cuenta"] = "";
+                    System.Web.HttpContext.Current.Session["tipo"] = "0";
+                    Response.Redirect("Default.aspx");
+                }
+            }
+            else
+            {
+                alerta.Text = "Usuario o Password incorrecta";
+                Console.WriteLine("Usuario o Password incorrecta");
+            }
+        }
+
+
+
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Adminstrador.aspx.cs" Inherits="BancoGT.Adminstrador" %>
+﻿<%@ Page Language="C#" Title="Administrador" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Adminstrador.aspx.cs" Inherits="BancoGT.Adminstrador" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <style type="text/css">
@@ -75,15 +75,24 @@
             color: #fff;
         }
     </style>
+    
     <div class="sidenav">
-         <div class="login-main-text">
-            <h2>Creditos <br> Bancarios</h2>
-            <p>Solicitud al banco un crédito bancario, recibiendo cierta suma o valor
-extra de dinero que deberá devolver (pagar) al finalizar el período de tiempo acordado por el
-banco.</p>
-         </div>
-      </div>
-      <div class="main">
+        
+        <div class="login-main-text">            
+            <div class="dropdown">
+                <label>Listado Usuario:</label>
+                <asp:ListBox ID="listUsuario" class="btn btn-secondary dropdown-toggle" runat="server"></asp:ListBox>
+            </div>
+            <br />
+            <div class="form-group">
+                <label>Monto a Añadir:</label>
+                <asp:TextBox type="text" ID="monto" runat="server" class="form-control" placeholder="Monto"></asp:TextBox>
+            </div>
+            <asp:Button ID="Button2" class="btn btn-white" runat="server" OnClick="montoInicial_click" Text="Agregar" />                            
+        </div>
+    </div>
+    
+      <div class="main">          
          <div class="col-md-6 col-sm-12">
             <div class="login-form">
                
@@ -95,7 +104,7 @@ banco.</p>
                      <label>Monto del Credito</label>
                       <asp:TextBox type="text" ID="txtmonto_credito" runat="server" class="form-control" placeholder="Monto"></asp:TextBox>
                   </div>
-                   <asp:Button ID="Button1" class="btn btn-black" runat="server" OnClick="debito_click" Text="Enviar" />                            
+                  <asp:Button ID="Button1" class="btn btn-black" runat="server" OnClick="eliminar_click" Text="Enviar" />                            
                   
                
             </div>

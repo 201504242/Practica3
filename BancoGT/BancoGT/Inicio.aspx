@@ -89,6 +89,9 @@
         </asp:ScriptManager>
   
     <div class="container login-container">
+        <div class="alert alert-danger">
+            <asp:Label ID="alerta"  class="alert-link" runat="server" Text="Ingrese Sus Datos Porfavor!"></asp:Label>
+        </div>
             <div class="row">
                 <div class="col-md-6 login-form-1">
                     <h3>Login</h3> 
@@ -126,10 +129,7 @@
                     <div class="form-group">
                         <asp:Button ID="Button1" class="btnSubmit" runat="server" OnClick="registro_click" Text="Registrar Datos" />                            
                     </div>                 
-                    </center>                        
-                    <div class="alert alert-danger">
-                        <asp:Label ID="alerta"  class="alert-link" runat="server" Text="Ingrese Sus Datos Porfavor!"></asp:Label>
-                    </div>
+                    </center>                    
                 </div>
             </div>
         </div>

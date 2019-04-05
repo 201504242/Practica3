@@ -57,6 +57,7 @@
                         <%string val = System.Web.HttpContext.Current.Session["tipo"].ToString();
                             if (val.Equals("0")){%>	
                         <li><a runat="server" href="~/Debito">Debito</a></li>
+                        <li><a runat="server" href="~/Adminstrador">Perfil Admin</a></li>
                         <%}%>
                     </ul>
                 </div>
