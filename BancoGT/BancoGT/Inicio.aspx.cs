@@ -126,7 +126,8 @@ namespace BancoGT
                     String rol = Convert.ToString(ds.Tables[0].Rows[0][5]);
                     System.Web.HttpContext.Current.Session["usuario"] = login_usuario.Text;
                     System.Web.HttpContext.Current.Session["codigo"] = login_codigo.Text;
-                    System.Web.HttpContext.Current.Session["cuenta"] = "";
+                    ds = op.BuscarcuentaTrans(login_usuario.Text);
+                    System.Web.HttpContext.Current.Session["cuenta"] = Convert.ToString(ds.Tables[0].Rows[0][0]);
                     System.Web.HttpContext.Current.Session["tipo"] = "1";
                     Response.Redirect("Default.aspx");
                 }

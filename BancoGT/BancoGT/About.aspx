@@ -84,18 +84,20 @@
       <div class="main">
          <div class="col-md-6 col-sm-12">
             <div class="login-form">
-               
+                <div class="alert alert-success">                  
+                    <asp:Label ID="msg" runat="server" Text="LLena los datos..!"></asp:Label>
+                </div>
+
+                    
                   <div class="form-group">
                      <label>Numero de Cuenta</label>
                       <asp:TextBox type="text" ID="txtcuenta" runat="server" class="form-control" placeholder="Numero de Cuenta Destino"></asp:TextBox>
                   </div>
                   <div class="form-group">
                      <label>Monto a Transferir</label>
-                      <asp:TextBox type="text" ID="txtmonto" runat="server" class="form-control" placeholder="Monto"></asp:TextBox>
+                      <asp:TextBox type="text" ID="txtmonton" runat="server" class="form-control" placeholder="Monto"></asp:TextBox>
                   </div>
-                   <asp:Button ID="Button1" class="btn btn-black" runat="server" OnClick="trans_click" Text="Enviar" />                            
-                  
-               
+                   <asp:Button ID="Button1" class="btn btn-black" runat="server" OnClick="trans_click" Text="Enviar" />                                           
             </div>
          </div>
       </div>

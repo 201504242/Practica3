@@ -162,6 +162,8 @@ namespace BancoGT
             return ds;
         }
 
+        
+
         public DataSet Crear_Usuario(String usuario, String contrasena, string nombre, string correo)
         {
             DataSet ds = new DataSet();
@@ -255,5 +257,98 @@ namespace BancoGT
 
             }
         }
+
+        //TRANFERENCIA
+        public DataSet transferir(decimal monto, int cuentaAtrans, int micuenta)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                con = new SqlConnection(conexion);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("transferir", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@cuentaAtrans", cuentaAtrans);
+                cmd.Parameters.AddWithValue("@micuenta", micuenta);
+                cmd.Parameters.AddWithValue("@monto", monto);
+                cmd.Connection = con;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return ds;
+        }
+
+        public DataSet consultar_cuenta(int cuenta)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                con = new SqlConnection(conexion);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("consultar_cuenta", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_cuenta", cuenta);
+                cmd.Connection = con;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return ds;
+        }
+
+        public DataSet BuscarcuentaTrans(string usuario)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                con = new SqlConnection(conexion);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("BuscarCuentaTransferir", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ususario", usuario);
+                cmd.Connection = con;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return ds;
+        }
+
+        public DataSet saldoMayor(int cuenta, decimal monto)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                con = new SqlConnection(conexion);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("saldoMayor", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@cuenta", cuenta);
+                cmd.Parameters.AddWithValue("@monto", monto);
+                cmd.Connection = con;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return ds;
+        }
+
     }
 }

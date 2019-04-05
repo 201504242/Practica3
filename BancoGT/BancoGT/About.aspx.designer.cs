@@ -13,6 +13,15 @@ namespace BancoGT {
     public partial class About {
         
         /// <summary>
+        /// msg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label msg;
+        
+        /// <summary>
         /// txtcuenta control.
         /// </summary>
         /// <remarks>
@@ -22,13 +31,13 @@ namespace BancoGT {
         protected global::System.Web.UI.WebControls.TextBox txtcuenta;
         
         /// <summary>
-        /// txtmonto control.
+        /// txtmonton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtmonto;
+        protected global::System.Web.UI.WebControls.TextBox txtmonton;
         
         /// <summary>
         /// Button1 control.
