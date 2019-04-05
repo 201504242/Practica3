@@ -9,6 +9,7 @@ namespace BancoGT
 {
     public partial class Contact : Page
     {
+        Operaciones op = new Operaciones();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -17,8 +18,13 @@ namespace BancoGT
         {
             string monto = txtmonto_credito.Text;
             string descripcion = txtdescripcion.Text;
-
+            op.insertaCredito(
+                descripcion, 
+                System.Web.HttpContext.Current.Session["usuario"].ToString(), 
+                Int32.Parse(monto));
+            Response.Redirect("Contact");
             // codigo para verificaciones
         }
+       
     }
 }

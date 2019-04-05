@@ -61,6 +61,7 @@ namespace BancoGT
             }
             return ds.Tables[0].Rows[0][0].ToString();
         }
+
         public DataSet ListadoUsuario()
         {
             DataSet ds = new DataSet();
@@ -175,6 +176,29 @@ namespace BancoGT
 
             }
             return ds;
+        }
+
+        public void insertaCredito(string descripcion,string usuario,int monto)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                con = new SqlConnection(conexion);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("insertaCredito", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@descripcion", descripcion);
+                cmd.Parameters.AddWithValue("@monto", monto);
+                cmd.Parameters.AddWithValue("@usuario", usuario);
+                cmd.Connection = con;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }
