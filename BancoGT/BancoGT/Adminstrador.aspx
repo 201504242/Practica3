@@ -76,9 +76,12 @@
         }
     </style>
     
-    <div class="sidenav">
-        
-        <div class="login-main-text">            
+    <div class="sidenav">        
+        <div class="login-main-text">       
+            <div class="alert alert-success ">
+                <asp:Label ID="alerta"  class="alert-link" runat="server" Text="Saldo Inicial"></asp:Label>
+            </div>
+                 
             <div class="dropdown">
                 <label>Listado Usuario:</label>
                 <asp:ListBox ID="listUsuario" class="btn btn-secondary dropdown-toggle" runat="server"></asp:ListBox>
