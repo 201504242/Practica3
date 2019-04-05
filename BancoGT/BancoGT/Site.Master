@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="BancoGT.SiteMaster" %>
 
 <!DOCTYPE html>
-
 <html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
@@ -55,8 +54,10 @@
                         <li><a runat="server" href="~/">Inicio</a></li>
                         <li><a runat="server" href="~/About">Transferencia</a></li>
                         <li><a runat="server" href="~/Contact">Creditos</a></li>
+                        <%string val = System.Web.HttpContext.Current.Session["tipo"].ToString();
+                            if (val.Equals("0")){%>	
                         <li><a runat="server" href="~/Debito">Debito</a></li>
-
+                        <%}%>
                     </ul>
                 </div>
                 <asp:Label ID="lblUsuario" runat="server" ForeColor="White"></asp:Label>

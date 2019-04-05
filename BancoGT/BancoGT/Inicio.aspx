@@ -125,8 +125,11 @@
                         
                     <div class="form-group">
                         <asp:Button ID="Button1" class="btnSubmit" runat="server" OnClick="registro_click" Text="Registrar Datos" />                            
-                    </div> 
+                    </div>                 
                     </center>                        
+                    <div class="alert alert-danger">
+                        <asp:Label ID="alerta"  class="alert-link" runat="server" Text="Ingrese Sus Datos Porfavor!"></asp:Label>
+                    </div>
                 </div>
             </div>
         </div>

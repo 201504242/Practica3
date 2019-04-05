@@ -21,18 +21,6 @@ namespace BancoGT
 
         public void CrearUsuario()
         {
-            /* if (txt_usuario.Text.Equals("") && txt_contrasena.Text.Equals(""))
-             {
-                 MessageBox.Show("Error, los campos deben de estar completos");
-             }
-             else if (txt_usuario.Text.Equals("") && !txt_contrasena.Text.Equals(""))
-             {
-                 MessageBox.Show("Error, el campo usuario no puede ser vacio");
-             }
-             else if (!txt_usuario.Text.Equals("") && txt_contrasena.Text.Equals(""))
-             {
-                 MessageBox.Show("Error, el campo password no puede ser vacio");
-             }*/
             String usua = txtusuario.Text;
             String pass = txtcontra.Text;
             var ArregloPass = pass.ToCharArray();
@@ -52,15 +40,18 @@ namespace BancoGT
             }
             if (!contString || !contNum)
             {
+                alerta.Text = "Error, falta numero o letra";
                 Console.WriteLine("Error, falta numero o letra");
             }
             else if (ArregloUsua.Length > 12)
             {
+                alerta.Text = "Error, El nombre de usuario no debe ser mayor a 12 dígitos";
                 Console.WriteLine("Error");
             }
             else if (ArregloPass.Length != 8)
             {
-                Console.WriteLine("Error el password debe de ser de tamanio 8");
+                alerta.Text = "Error, Debe ser una contraseña alfanumérica de 8 dígitos.";
+                Console.WriteLine("Debe ser una contraseña alfanumérica de 8 dígitos.");
             }
 
             else
@@ -68,7 +59,19 @@ namespace BancoGT
                 DataSet ds = new DataSet();
                 // int id_usuario = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
                 ds = op.Crear_Usuario(txtusuario.Text, txtcontra.Text, txtnombre.Text, txtcorreo.Text);
-                Response.Redirect("Default.aspx");
+                String dato = ds.Tables[0].Rows[0][0].ToString();
+                if (dato.Equals("-1"))
+                {
+                    alerta.Text = "Error, Usuario ya existe";
+                }
+                else
+                {
+                    System.Web.HttpContext.Current.Session["usuario"] = txtusuario.Text;
+                    System.Web.HttpContext.Current.Session["codigo"] = dato;
+                    System.Web.HttpContext.Current.Session["cuenta"] = ds.Tables[0].Rows[0][1].ToString();
+                    System.Web.HttpContext.Current.Session["tipo"] = "1";
+                    Response.Redirect("Default.aspx");
+                }                
             }
         }
 
@@ -94,7 +97,11 @@ namespace BancoGT
             string usuario = login_usuario.Text;
             string contra = login_contra.Text;
             string codigo = login_codigo.Text;
-            // codigo para verificaciones
+            System.Web.HttpContext.Current.Session["usuario"] = "Administrador";
+            System.Web.HttpContext.Current.Session["codigo"] = "Admin";            System.Web.HttpContext.Current.Session["cuenta"] = "";
+            System.Web.HttpContext.Current.Session["tipo"] = "0";
+            Response.Redirect("Default.aspx");
+            
         }
     }
 }
