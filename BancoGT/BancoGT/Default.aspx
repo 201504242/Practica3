@@ -7,7 +7,10 @@
         <p class="lead">El Banco de Guatemala (BANCOGT) es el banco central de la República de Guatemala. Es una entidad estatal autónoma con patrimonio propio capaz de adquirir derechos y contraer obligaciones</p>
         <p>
             <center><img src="image/fondo.jpg" class="img-thumbnail" alt="fondo" height="250" width="500"/></center>
-        </p>    
+        </p>   
+        <div class="alert alert-success ">
+            <h3><asp:Label ID="saldo" runat="server" Text="Saldo:"></asp:Label></h3>
+        </div> 
     </div>
      <div class="row">
         <div class="col-md-4">

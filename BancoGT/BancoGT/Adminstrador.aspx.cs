@@ -20,8 +20,7 @@ namespace BancoGT
                 string usuario = ds.Tables[0].Rows[i].ItemArray.ElementAt(0).ToString();
                 string cuenta = ds.Tables[0].Rows[i].ItemArray.ElementAt(1).ToString();
                 listUsuario.Items.Add(usuario +" , "+cuenta);
-            }
-            
+            }            
         }
 
         public void montoInicial_click(object sender, EventArgs e)

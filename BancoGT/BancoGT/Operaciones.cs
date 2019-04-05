@@ -40,6 +40,27 @@ namespace BancoGT
             return ds;
         }
 
+        public string Saldito(string usuario)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                con = new SqlConnection(conexion);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Saldito", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@usuario", usuario);
+                cmd.Connection = con;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return ds.Tables[0].Rows[0][0].ToString();
+        }
         public DataSet ListadoUsuario()
         {
             DataSet ds = new DataSet();
