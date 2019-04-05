@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" Title="Administrador" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Adminstrador.aspx.cs" Inherits="BancoGT.Adminstrador" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    
+
     <style type="text/css">
         body {
             font-family: "Lato", sans-serif;
@@ -98,18 +100,14 @@
       <div class="main">          
          <div class="col-md-6 col-sm-12">
             <div class="login-form">
-               
-                  <div class="form-group">
-                     <label>Descripción de la razón para solicitar el crédito:</label>
-                      <asp:TextBox type="text" ID="txtdescripcion" runat="server" class="form-control" placeholder="Descripcion"></asp:TextBox>
-                  </div>
-                  <div class="form-group">
-                     <label>Monto del Credito</label>
-                      <asp:TextBox type="text" ID="txtmonto_credito" runat="server" class="form-control" placeholder="Monto"></asp:TextBox>
-                  </div>
-                  <asp:Button ID="Button1" class="btn btn-black" runat="server" OnClick="eliminar_click" Text="Enviar" />                            
-                  
-               
+                <asp:GridView ID="GridView1" runat="server" 
+                    OnSelectedIndexChanged="GridView1_SelectedIndexChanged1"
+                     CssClass="table table-striped">
+                    <Columns>
+                        <asp:CommandField ButtonType="Button" HeaderText="Aceptar Credito" ShowHeader="True" ShowSelectButton="True" />
+                    </Columns>
+                   
+                </asp:GridView> 
             </div>
          </div>
       </div>

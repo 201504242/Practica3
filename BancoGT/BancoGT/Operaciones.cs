@@ -59,9 +59,39 @@ namespace BancoGT
             {
 
             }
-            return ds.Tables[0].Rows[0][0].ToString();
+            try
+            {
+                return ds.Tables[0].Rows[0][0].ToString();
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+            
         }
 
+        public DataSet listadoCreditos()
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                con = new SqlConnection(conexion);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("listadoCreditos", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Connection = con;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return ds;
+        
+        }
         public DataSet ListadoUsuario()
         {
             DataSet ds = new DataSet();
@@ -104,6 +134,31 @@ namespace BancoGT
             {
 
             }
+            return ds;
+        }
+
+        public DataSet aceptarCredito(int correlativo, int cuenta, double monton)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                con = new SqlConnection(conexion);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("aceptarCredito", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@monto", monton);
+                cmd.Parameters.AddWithValue("@id_cuenta", cuenta);
+                cmd.Parameters.AddWithValue("@correlativo", correlativo);
+                cmd.Connection = con;
+                SqlDataAdapter datapter = new SqlDataAdapter(cmd);
+                datapter.Fill(ds);
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                
+            }
+
             return ds;
         }
 
