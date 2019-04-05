@@ -13,5 +13,11 @@ namespace BancoGT
         {
 
         }
+
+        protected void debito_click(object sender, EventArgs e)
+        {
+            string usuario = txtdescripcion.Text;
+            // codigo para verificaciones
+        }
     }
 }
