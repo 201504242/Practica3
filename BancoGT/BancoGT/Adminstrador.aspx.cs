@@ -34,7 +34,7 @@ namespace BancoGT
             string encontro = Convert.ToString(ds.Tables[0].Rows[0][0]);
             ds = op.depositarAdmin(Convert.ToInt32(monto.Text), cuenta);
             alerta.Text = "Se han Cargado Q" + monto.Text;
-            Response.Redirect("Administrador");
+            Response.Redirect("Adminstrador");
         }
 
         public void eliminar_click(object sender, EventArgs e)
