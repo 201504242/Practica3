@@ -77,10 +77,8 @@
     </style>
     <div class="sidenav">
          <div class="login-main-text">
-            <h2>Creditos <br> Bancarios</h2>
-            <p>Solicitud al banco un crédito bancario, recibiendo cierta suma o valor
-extra de dinero que deberá devolver (pagar) al finalizar el período de tiempo acordado por el
-banco.</p>
+            <h2>Debitos <br> Bancarios</h2>
+            <p>&nbsp;Cobro de creditos que fueron aprovados por el Banco.</p>
          </div>
       </div>
       <div class="main">
@@ -88,18 +86,17 @@ banco.</p>
             <div class="login-form">
                
                   <div class="form-group">
-                     <label>Descripción de la razón para solicitar el crédito:</label>
-                      <asp:TextBox type="text" ID="txtdescripcion" runat="server" class="form-control" placeholder="Descripcion"></asp:TextBox>
+                     &nbsp;<asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="1001px">
+                          <Columns>
+                              <asp:CommandField ButtonType="Button" HeaderText="Debitar" ShowHeader="True" ShowSelectButton="True" />
+                          </Columns>
+                      </asp:GridView>
                   </div>
-                  <div class="form-group">
-                     <label>Monto del Credito</label>
-                      <asp:TextBox type="text" ID="txtmonto_credito" runat="server" class="form-control" placeholder="Monto"></asp:TextBox>
-                  </div>
-                   <asp:Button ID="Button1" class="btn btn-black" runat="server" OnClick="debito_click" Text="Enviar" />                            
                   
                
             </div>
          </div>
       </div>
+    <asp:Label ID="alerta" runat="server"></asp:Label>
     <br />
 </asp:Content>

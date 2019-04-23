@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -10,9 +11,9 @@ namespace BancoGT
     public class Operaciones
     {
         //la tuya
-        //String conexion = "data source=DESKTOP-N6I4NNI\\SQLEXPRESS;Initial Catalog=practica35;Integrated Security=True";
+        String conexion = "data source=DESKTOP-N6I4NNI\\SQLEXPRESS;Initial Catalog=practica35;Integrated Security=True";
         //esta es la mia
-        String conexion = "data source=LAPTOP-L3B97VHK\\SQLEXPRESS;Initial Catalog=practica35;Integrated Security=True";
+       // String conexion = "data source=LAPTOP-L3B97VHK\\SQLEXPRESS;Initial Catalog=practica35;Integrated Security=True";
         SqlConnection con;
 
         public DataSet consultar_usuario(string usuario, string password, int id_usuario)
@@ -162,7 +163,32 @@ namespace BancoGT
             return ds;
         }
 
-        
+        public DataSet debitar(int correlativo, int cuenta, double monton)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                con = new SqlConnection(conexion);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("aceptarCredito", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@monto", monton);
+                cmd.Parameters.AddWithValue("@id_cuenta", cuenta);
+                cmd.Parameters.AddWithValue("@correlativo", correlativo);                
+                cmd.Connection = con;
+                SqlDataAdapter datapter = new SqlDataAdapter(cmd);
+                datapter.Fill(ds);
+                con.Close();
+            }
+            catch (Exception e)
+            {
+
+            }
+
+            return ds;
+        }
+
+
 
         public DataSet Crear_Usuario(String usuario, String contrasena, string nombre, string correo)
         {
