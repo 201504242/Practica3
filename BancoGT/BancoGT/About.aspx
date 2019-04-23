@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="Transferencias" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="BancoGT.About" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="sidenav">
+         <div class="login-main-text">
+            <h2>Transferencias <br> Bancarias</h2>
+            <p>Traspasos de fondos desde una cuenta a otra</p>
+         </div>
+      </div>
     <style type="text/css">
         body {
             font-family: "Lato", sans-serif;
@@ -75,12 +81,6 @@
             color: #fff;
         }
     </style>
-    <div class="sidenav">
-         <div class="login-main-text">
-            <h2>Transferencias <br> Bancarias</h2>
-            <p>Traspasos de fondos desde una cuenta a otra</p>
-         </div>
-      </div>
       <div class="main">
          <div class="col-md-6 col-sm-12">
             <div class="login-form">

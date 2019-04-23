@@ -86,16 +86,16 @@
             <div class="login-form">
                
                   <div class="form-group">
-                     &nbsp;<asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="1001px">
-                          <Columns>
-                              <asp:CommandField ButtonType="Button" HeaderText="Debitar" ShowHeader="True" ShowSelectButton="True" />
-                          </Columns>
-                      </asp:GridView>
-                  </div>
+                     &nbsp;</div>
                   
                
             </div>
          </div>
+          <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="1001px">
+              <Columns>
+                  <asp:CommandField ButtonType="Button" HeaderText="Debitar" ShowHeader="True" ShowSelectButton="True" />
+              </Columns>
+          </asp:GridView>
       </div>
     <asp:Label ID="alerta" runat="server"></asp:Label>
     <br />
