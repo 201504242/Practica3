@@ -379,6 +379,28 @@ namespace BancoGT
             return ds;
         }
 
+        public DataSet EstadoCuenta(int cuenta)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                con = new SqlConnection(conexion);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Estado_cuenta", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@cuenta", cuenta);
+                cmd.Connection = con;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return ds;
+        }
+
         public DataSet consultar_cuenta(int cuenta)
         {
             DataSet ds = new DataSet();

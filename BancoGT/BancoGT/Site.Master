@@ -54,6 +54,7 @@
                         <li><a runat="server" href="~/">Inicio</a></li>
                         <li><a runat="server" href="~/About">Transferencia</a></li>
                         <li><a runat="server" href="~/Contact">Creditos</a></li>
+                        <li><a runat="server" href="~/Estado_Cuenta">Estado de cuenta</a></li>
                         <%string val = System.Web.HttpContext.Current.Session["tipo"].ToString();
                             if (val.Equals("0")){%>	
                         <li><a runat="server" href="~/Debito">Debito</a></li>
