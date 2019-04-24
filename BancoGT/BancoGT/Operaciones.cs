@@ -117,6 +117,52 @@ namespace BancoGT
 
         }
 
+        public DataSet usua()
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                con = new SqlConnection(conexion);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Usuarios", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Connection = con;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return ds;
+
+        }
+
+        public DataSet Eliminar_Usuario(int id)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                con = new SqlConnection(conexion);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Eliminar_Usuario", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_usuario", id);
+                cmd.Connection = con;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return ds;
+
+        }
+
         public DataSet ListadoUsuario()
         {
             DataSet ds = new DataSet();
