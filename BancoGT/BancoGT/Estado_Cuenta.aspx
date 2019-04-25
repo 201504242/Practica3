@@ -88,12 +88,16 @@
                   <div class="form-group">
                      &nbsp;<asp:GridView ID="GridView1" runat="server" Width="745px">
                       </asp:GridView>
+                      <br />
+                      <asp:Button ID="imprimir" runat="server" OnClick="imprimir_Click" Text="Imprimir" />
                   </div>
                   
                
             </div>
          </div>
       </div>
+    <div>
+    </div>
     <br />
 <br />
 <br />
